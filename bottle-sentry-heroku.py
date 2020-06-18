@@ -11,9 +11,9 @@ from bottle import route, run
 import sentry_sdk
 from sentry_sdk.integrations.bottle import BottleIntegration
 
-sentry_dsn = os.environ.get('SENTRY_DSN', "https://bad29cf8f9b649edbd5b6e96762093af@o407218.ingest.sentry.io/5275875")
+# sentry_dsn = os.environ.get('SENTRY_DSN', "https://bad29cf8f9b649edbd5b6e96762093af@o407218.ingest.sentry.io/5275875")
 sentry_sdk.init(
-    dsn=sentry_dsn,
+    dsn=os.environ.get('SENTRY_DSN'),
     integrations=[BottleIntegration()]
 )
 
