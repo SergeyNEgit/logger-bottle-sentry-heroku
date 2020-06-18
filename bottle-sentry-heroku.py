@@ -17,10 +17,13 @@ sentry_sdk.init(
     integrations=[BottleIntegration()]
 )
 
+@route('/')  
+def index():  
+    return "Use /success, /fail, TEST_ENV_VAR="+os.environ.get('TEST_ENV_VAR')
+    
 @route('/success')  
 def success():  
-    print("This is success!")  
-    return "This is success! TEST_ENV_VAR="+os.environ.get('TEST_ENV_VAR')
+    return "This is success!"
 
 @route('/fail')  
 def fail(): 
