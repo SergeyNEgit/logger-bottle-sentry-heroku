@@ -1,3 +1,4 @@
+# Здание:
 # Необходимо написать простой веб-сервер с помощью фреймворка Bottle. 
 # Все ошибки приложения должны попадать в вашу информационную панель Sentry. 
 # Приложение должно размещаться на Heroku, 
@@ -19,7 +20,7 @@ sentry_sdk.init(
 
 @route('/')  
 def index():  
-    return "Use /success, /fail, TEST_ENV_VAR="+os.environ.get('TEST_ENV_VAR')
+    return "Use /success, /fail \n"+ "Переменные окружения: \n  PORT={port} \n  SENTRY_DSN={dsn}".format( port=os.environ.get('PORT'), dsn=os.environ.get('SENTRY_DSN') ) 
     
 @route('/success')  
 def success():  
